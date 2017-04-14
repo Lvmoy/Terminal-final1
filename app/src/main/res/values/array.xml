@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="selfSwitch">
+        <item>On</item>
+        <item>Off</item>
+
+    </string-array>
+
+    <string-array name="normal_on">
+        <item>On(Normal)</item>
+        <item>Off</item>
+        <item>IESS-315</item>
+
+    </string-array>
+</resources>

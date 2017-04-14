@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/colorDarkBlue1"
+    android:weightSum="2">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorBlue1">
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="50dp"
+            android:textSize="45sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="发送数据" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rl_sendData"
+            android:background="@color/colorCyan1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_send" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorBlue1">
+
+        <TextView
+            android:id="@+id/tv_receive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center_vertical"
+            android:text="接受数据"
+            android:textSize="45sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rl_receiveData"
+            android:background="@color/colorCyan1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv_receive" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/bt_return"
+        android:background="@color/colorYellow1"
+        android:layout_gravity="bottom"
+        android:layout_width="215dp"
+        android:layout_height="170dp"
+        android:textSize="65sp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="返回"/>
+
+</LinearLayout>
