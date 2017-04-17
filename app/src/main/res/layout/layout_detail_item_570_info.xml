@@ -3,19 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@color/colorDarkBlue1"
+    android:background="@color/colorCyan1"
     android:weightSum="2">
 
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/colorBlue1">
+        android:background="@color/colorCyan1">
 
         <TextView
             android:id="@+id/tv_send"
-            android:layout_marginLeft="155dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="30dp"
             android:textSize="45sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,6 +27,8 @@
             android:background="@color/colorCyan1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp"
             android:layout_below="@id/tv_send" />
 
 
@@ -36,14 +38,14 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/colorBlue1">
+        android:background="@color/colorCyan1">
 
         <TextView
             android:id="@+id/tv_receive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="155dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="30dp"
             android:gravity="center_vertical"
             android:text="接受数据"
             android:textSize="45sp" />
@@ -53,19 +55,44 @@
             android:background="@color/colorCyan1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp"
             android:layout_below="@+id/tv_receive" />
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/bt_return"
-        android:background="@color/colorYellow1"
-        android:layout_gravity="bottom"
-        android:layout_width="215dp"
-        android:layout_height="170dp"
-        android:textSize="65sp"
-        android:layout_marginBottom="0dp"
-        android:gravity="center"
-        android:text="返回"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="67dp"
+            android:layout_marginTop="30dp"
+            android:textSize="45sp"
+            android:text="接受性能参数"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rl_receivePerformance"
+            android:background="@color/colorCyan1"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           />
+
+        <TextView
+            android:id="@+id/bt_return"
+            android:background="@color/colorYellow1"
+            android:layout_gravity="bottom"
+            android:layout_width="215dp"
+            android:layout_height="170dp"
+            android:textSize="55sp"
+            android:layout_marginLeft="185dp"
+            android:layout_marginTop="180dp"
+            android:gravity="center"
+            android:text="返回"/>
+    </LinearLayout>
+
 
 </LinearLayout>

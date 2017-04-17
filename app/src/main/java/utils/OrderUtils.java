@@ -79,6 +79,7 @@ public class OrderUtils {
                 result.append(line + "\r\n");
             }
             resultStr = result.toString();
+            Log.d("hah", resultStr);
 
             try {
                 process.waitFor();
@@ -150,7 +151,7 @@ public class OrderUtils {
 
     private static boolean doQueueQuery(String baseUri, List<DataItem> dataItems) {
         boolean flag = false;
-        Order[] orders = new Order[6];
+        Order[] orders = new Order[18];
         //sendHz
         orders[0] = new Order();
         orders[0].setId(0);
@@ -214,6 +215,136 @@ public class OrderUtils {
         orders[5].setType("");
         orders[5].setValue("");
 
+
+        //sendFEC
+        orders[6] = new Order();
+        orders[6].setId(0);
+        orders[6].setIp("172.22.1.22");
+        orders[6].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.2.5.0");
+        orders[6].setMachineType(2);
+        orders[6].setOrderName("sendFEC");
+        orders[6].setOrderType(2);
+        orders[6].setType("");
+        orders[6].setValue("");
+
+        //sendmodulation
+        orders[7] = new Order();
+        orders[7].setId(0);
+        orders[7].setIp("172.22.1.22");
+        orders[7].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.2.4.0");
+        orders[7].setMachineType(2);
+        orders[7].setOrderName("sendmodulation");
+        orders[7].setOrderType(2);
+        orders[7].setType("");
+        orders[7].setValue("");
+
+        //sendCarrier
+        orders[8] = new Order();
+        orders[8].setId(0);
+        orders[8].setIp("172.22.1.22");
+        orders[8].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.2.12.0");
+        orders[8].setMachineType(2);
+        orders[8].setOrderName("sendcarrier");
+        orders[8].setOrderType(2);
+        orders[8].setType("");
+        orders[8].setValue("");
+        //send DATA INVERT
+        orders[9] = new Order();
+        orders[9].setId(0);
+        orders[9].setIp("172.22.1.22");
+        orders[9].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.2.7.0");
+        orders[9].setMachineType(2);
+        orders[9].setOrderName("send DATA INVERT");
+        orders[9].setOrderType(2);
+        orders[9].setType("");
+        orders[9].setValue("");
+        //send CLOCK INVERT
+        orders[10] = new Order();
+        orders[10].setId(0);
+        orders[10].setIp("172.22.1.22");
+        orders[10].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.2.8.0");
+        orders[10].setMachineType(2);
+        orders[10].setOrderName("send CLOCK INVERT");
+        orders[10].setOrderType(2);
+        orders[10].setType("");
+        orders[10].setValue("");
+
+        //receiveFec
+        orders[11] = new Order();
+        orders[11].setId(0);
+        orders[11].setIp("172.22.1.22");
+        orders[11].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.3.3.0");
+        orders[11].setMachineType(2);
+        orders[11].setOrderName("request_receiveBps");
+        orders[11].setOrderType(2);
+        orders[11].setType("");
+        orders[11].setValue("");
+
+        //receiveModulation
+        orders[12] = new Order();
+        orders[12].setId(0);
+        orders[12].setIp("172.22.1.22");
+        orders[12].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.3.4.0");
+        orders[12].setMachineType(2);
+        orders[12].setOrderName("receiveModulation");
+        orders[12].setOrderType(2);
+        orders[12].setType("");
+        orders[12].setValue("");
+
+        //receiveScrambler
+        orders[13] = new Order();
+        orders[13].setId(0);
+        orders[13].setIp("172.22.1.22");
+        orders[13].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.3.11.0");
+        orders[13].setMachineType(2);
+        orders[13].setOrderName("receiveScrambler");
+        orders[13].setOrderType(2);
+        orders[13].setType("");
+        orders[13].setValue("");
+
+        //receiveAcquisition
+        orders[14] = new Order();
+        orders[14].setId(0);
+        orders[14].setIp("172.22.1.22");
+        orders[14].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.3.12.0");
+        orders[14].setMachineType(2);
+        orders[14].setOrderName("receiveAcquisition");
+        orders[14].setOrderType(2);
+        orders[14].setType("");
+        orders[14].setValue("");
+
+        //receiveAlarm
+        orders[15] = new Order();
+        orders[15].setId(0);
+        orders[15].setIp("172.22.1.22");
+        orders[15].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.3.6.0");
+        orders[15].setMachineType(2);
+        orders[15].setOrderName("receiveAlarm");
+        orders[15].setOrderType(2);
+        orders[15].setType("");
+        orders[15].setValue("");
+
+        //receive data invert
+        orders[16] = new Order();
+        orders[16].setId(0);
+        orders[16].setIp("172.22.1.22");
+        orders[16].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.3.8.0");
+        orders[16].setMachineType(2);
+        orders[16].setOrderName("receive data invert");
+        orders[16].setOrderType(2);
+        orders[16].setType("");
+        orders[16].setValue("");
+
+        //receive clock invert
+        orders[17] = new Order();
+        orders[17].setId(0);
+        orders[17].setIp("172.22.1.22");
+        orders[17].setMachine_port("iso.3.6.1.4.1.6247.85.1.2.3.9.0");
+        orders[17].setMachineType(2);
+        orders[17].setOrderName("receive clock invert");
+        orders[17].setOrderType(2);
+        orders[17].setType("");
+        orders[17].setValue("");
         for(int i = 0; i < orders.length; i ++){
             flag = doSingleQuery(i, baseUri, orders[i], dataItems);
         }
@@ -286,7 +417,7 @@ public class OrderUtils {
             e.printStackTrace();
         }
     }
-        private static boolean dealSingleData(int i, String extraString, List<DataItem> dataItems) {
+        private static boolean  dealSingleData(int i, String extraString, List<DataItem> dataItems) {
         HashMap<String, String> tvMap = new HashMap<>();
         String patternStr = "(iso\\S+)(=\\s\\w{6,9})(:\\s.*\\d{0,9})";
         String[] paS = new String[]{"iso\\S+", "=\\s\\w{6,9}", ":\\s.*\\d{0,9}"};
@@ -330,7 +461,7 @@ public class OrderUtils {
         }
 
         dataItems.add(i, new DataItem(i, "order", type, value, iso, "172.22.1.22"));
-        if(i == 5){
+        if(i == 17){
             return true;
         }else {
             return false;

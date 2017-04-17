@@ -28,7 +28,7 @@
     <string name="home_detail_item_bps">发射数据速率（kbps）</string>
     <string name="home_detail_item_dbm">输出电平（dbm）</string>
     <string name="home_detail_item_state">输出状态</string>
-    <string name="home_detail_item_scrambler">发送扰频器状态</string>
+    <string name="home_detail_item_scrambler">扰频器状态</string>
     <string name="home_detail_item_receive_hz">接收频率（MHz）</string>
     <string name="home_detail_item_receive_bps">接收数据速率（kbps）</string>
     <string name="home_detail_bt_set">设置</string>

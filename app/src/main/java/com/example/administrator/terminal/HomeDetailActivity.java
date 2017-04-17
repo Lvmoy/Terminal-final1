@@ -17,6 +17,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -94,6 +95,8 @@ public class HomeDetailActivity extends Activity {
     //详情页receive data List
     private ArrayList<String> receiveList = new ArrayList<>();
 
+    //详情页 接受性能参数
+    private ArrayList<String> receivePerformance = new ArrayList<>();
     private boolean is570Connecting = false;
     private boolean isDataShowing = false;
     private boolean isChildThreadRunning = true;
@@ -283,7 +286,7 @@ public class HomeDetailActivity extends Activity {
                     public void onNoDoubleClick(View v) {
                         if (dataItems != null && dataItems.size() > 0) {
                             tempList.clear();
-                            for (int i = 0; i < dataItems.size(); i++) {
+                            for (int i = 0; i < 6; i++) {
                                 if(conpenentList.get(i) instanceof  EditText) {
                                     String temp =  ((EditText)conpenentList.get(i)).getText().toString();
                                     temp = dealEditString(i, temp);
@@ -328,6 +331,7 @@ public class HomeDetailActivity extends Activity {
                         Intent intent = new Intent(HomeDetailActivity.this, ShowActivity.class);
                         intent.putStringArrayListExtra("com.example.administrator.terminal.SendAll", sendList);
                         intent.putStringArrayListExtra("com.example.administrator.terminal.ReceiveAll", receiveList);
+//                        intent.putStringArrayListExtra("com.example.administrator.terminal.ReceivePerformance", receivePerformance);
                         startActivity(intent);
                     }
                 });
@@ -426,14 +430,42 @@ public class HomeDetailActivity extends Activity {
                 String temp = dataItems.get(4).getValue().substring(1, lenght);
                 stringBuffer.setLength(0);
                 stringBuffer.append(temp);
-                etPowerLevel.setText(stringBuffer);
-                sendList.add(stringBuffer.toString());
-//                etPowerLevel.setText(stringBuffer.insert(2, "."));
-                String i = dataItems.get(5).getValue();
+                String i = "";
+                i = dataItems.get(6).getValue();
+                switch (i){
+                    case "0":
+                        sendList.add("Uncode");
+                        break;
+                    case "1":
+                        sendList.add("Viterbi");
+                        break;
+                    case "6":
+                        sendList.add("Tcp");
+                        break;
+                    default:
+                        break;
+                }
+
+                i = dataItems.get(7).getValue();
+                switch (i){
+                    case "0":
+                        sendList.add("BPSK");
+                        break;
+                    case "1":
+                        sendList.add("QPSK");
+                        break;
+                    case "2":
+                        sendList.add("0QPSK");
+                        break;
+                    default:
+                        break;
+                }
+
+                i = dataItems.get(5).getValue();
                 spSendScrambler.setSelection(scramValueToPostionMap.get(i));
                 switch (i){
                     case "0":
-                        sendList.add("Off");
+                        sendList.add("OFF");
                         break;
                     case "1":
                         sendList.add("On(Normal)");
@@ -444,6 +476,117 @@ public class HomeDetailActivity extends Activity {
                     default:
                         break;
                 }
+
+
+                i = dataItems.get(9).getValue();
+                switch (i){
+                    case "0":
+                        sendList.add("Normal");
+                        break;
+                    case "1":
+                        sendList.add("Inverted");
+                        break;
+                    default:
+                        break;
+                }
+                i = dataItems.get(10).getValue();
+                switch (i){
+                    case "0":
+                        sendList.add("Normal");
+                        break;
+                    case "1":
+                        sendList.add("Inverted");
+                        break;
+                    default:
+                        break;
+                }
+                i = dataItems.get(8).getValue();
+                switch (i){
+                    case "0":
+                        sendList.add("OFF");
+                        break;
+                    case "1":
+                        sendList.add("ON");
+                        break;
+                    case "2":
+                        sendList.add("RTI, timeout=1s");
+                        break;
+                    default:
+                        break;
+                }
+                i = dataItems.get(11).getValue();
+                switch (i){
+                    case "7":
+                        receiveList.add("Uncode");
+                        break;
+                    case "2":
+                        receiveList.add("Viterbi");
+                        break;
+                    case "4":
+                        receiveList.add("Tcp");
+                        break;
+                    default:
+                        break;
+                }
+
+                i = dataItems.get(12).getValue();
+                switch (i){
+                    case "0":
+                        receiveList.add("BPSK");
+                        break;
+                    case "1":
+                        receiveList.add("QPSK");
+                        break;
+                    case "2":
+                        receiveList.add("0QPSK");
+                        break;
+                    default:
+                        break;
+                }
+
+                i = dataItems.get(13).getValue();
+                switch (i){
+                    case "0":
+                        receiveList.add("OFF");
+                        break;
+                    case "1":
+                        receiveList.add("On(Normal)");
+                        break;
+                    case "2":
+                        receiveList.add("IESS-315");
+                        break;
+                    default:
+                        break;
+                }
+                i = dataItems.get(16).getValue();
+                switch (i){
+                    case "0":
+                        receiveList.add("Normal");
+                        break;
+                    case "1":
+                        receiveList.add("Inverted");
+                        break;
+                    default:
+                        break;
+                }
+                i = dataItems.get(17).getValue();
+                switch (i){
+                    case "0":
+                        receiveList.add("Normal");
+                        break;
+                    case "1":
+                        receiveList.add("Inverted");
+                        break;
+                    default:
+                        break;
+                }
+
+                receiveList.add(dataItems.get(14).getValue());
+                receiveList.add(dataItems.get(15).getValue());
+
+                etPowerLevel.setText(stringBuffer);
+                sendList.add(stringBuffer.toString());
+//                etPowerLevel.setText(stringBuffer.insert(2, "."));
 
             } else {
                 Crouton.makeText(HomeDetailActivity.this, "连接570设备错误!", Style.ALERT).show();
@@ -578,11 +721,15 @@ public class HomeDetailActivity extends Activity {
     private void showPingInfo() {
         if(dialog == null || dialgTextView == null){
             dialog = new Dialog(HomeDetailActivity.this, R.style.UserAvatarDialog);
+//            Window dialogWindow = dialog.getWindow();
+//            WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+//            lp.width = 600;
             dialgTextView = new TextView(HomeDetailActivity.this);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialgTextView.setTextColor(getResources().getColor(R.color.colorOrange));
-            dialgTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+            dialgTextView.setTextColor(getResources().getColor(R.color.colorWhite));
+            dialgTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 19);
             dialog.setContentView(dialgTextView);
+//            dialog.set
         }
         dialgTextView.setText(resultPing);
         dialog.show();
